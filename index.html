@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Oumayma 🎀</title>
+<style>
+:root{--bg:#ffe3ee;--card:#fff;--ink:#7a2a4a;--accent:#ff6fa5;--soft:#ffc2d9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1220;--card:#3b1a2e;--ink:#ffd6e6;--accent:#ff7fb0;--soft:#6b2a4b}}
+:root[data-theme="dark"]{--bg:#2a1220;--card:#3b1a2e;--ink:#ffd6e6;--accent:#ff7fb0;--soft:#6b2a4b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:"Quicksand","Trebuchet MS",system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:20px;overflow-x:hidden}
+.card{background:var(--card);border-radius:28px;padding:28px 22px;max-width:380px;width:100%;text-align:center;box-shadow:0 10px 30px rgba(255,111,165,.25);position:relative}
+h1{font-size:1.5rem;margin:8px 0 4px}
+p{line-height:1.5;margin:8px 0}
+button{font:inherit;font-weight:700;border:none;border-radius:999px;padding:12px 22px;cursor:pointer;margin:6px;color:#fff;background:var(--accent);transition:transform .15s}
+button:active{transform:scale(.94)}
+button.alt{background:var(--soft);color:var(--ink)}
+.hidden{display:none}
+.float{animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.heart{position:fixed;bottom:-30px;font-size:22px;pointer-events:none;animation:rise 3s linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="s1">
+    <svg class="float" width="170" height="150" viewBox="0 0 170 150" aria-hidden="true">
+      <polygon points="30,50 38,10 70,34" fill="#fff" stroke="#7a2a4a" stroke-width="4" stroke-linejoin="round"/>
+      <polygon points="140,50 132,10 100,34" fill="#fff" stroke="#7a2a4a" stroke-width="4" stroke-linejoin="round"/>
+      <ellipse cx="85" cy="85" rx="64" ry="52" fill="#fff" stroke="#7a2a4a" stroke-width="4"/>
+      <ellipse cx="62" cy="82" rx="5" ry="7" fill="#7a2a4a"/>
+      <ellipse cx="108" cy="82" rx="5" ry="7" fill="#7a2a4a"/>
+      <circle cx="46" cy="98" r="9" fill="#ffb3cf" opacity=".7"/>
+      <circle cx="124" cy="98" r="9" fill="#ffb3cf" opacity=".7"/>
+      <path d="M78 98 q7 8 14 0" fill="none" stroke="#7a2a4a" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M85 90 l-4 -4 h8z" fill="#ff6fa5"/>
+      <path d="M16 90 h-12 M16 100 l-11 5 M154 90 h12 M154 100 l11 5" stroke="#7a2a4a" stroke-width="3" stroke-linecap="round"/>
+      <g transform="translate(85 28)"><path d="M0 0 l-24 -14 v28z M0 0 l24 -14 v28z" fill="#ff6fa5" stroke="#7a2a4a" stroke-width="3" stroke-linejoin="round"/><circle r="6" fill="#ff9cc2" stroke="#7a2a4a" stroke-width="3"/></g>
+    </svg>
+    <h1>psst… Oumayma 🎀</h1>
+    <p>I made you a little something, just because.</p>
+    <button id="open">open it 💌</button>
+  </div>
+
+  <div id="s2" class="hidden">
+    <h1>hi Oumayma ✨</h1>
+    <p>I heard you like Hello Kitty, so I made you a tiny pink corner of the internet.</p>
+    <p>No reason, just a little something to make your day cuter. 🌸</p>
+    <button id="yes">tap for hearts 💗</button>
+    <p id="reply"></p>
+  </div>
+</div>
+
+<script>
+function hearts(n){
+  var e=["💗","🎀","✨","🌸","💖"];
+  for(var i=0;i<n;i++){
+    var h=document.createElement("div");
+    h.className="heart";
+    h.textContent=e[i%e.length];
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDelay=Math.random()*1.2+"s";
+    document.body.appendChild(h);
+    setTimeout(function(x){return function(){x.remove()}}(h),4500);
+  }
+}
+document.getElementById("open").onclick=function(){
+  document.getElementById("s1").classList.add("hidden");
+  document.getElementById("s2").classList.remove("hidden");
+  hearts(14);
+};
+var notes=["you're officially cuter than this page 🎀","hope your day is as soft and pink as this 🌸","drink some water and smile a little 💧","okay that's all, enjoy your hearts 💗"];
+var n=0;
+document.getElementById("yes").onclick=function(){
+  document.getElementById("reply").textContent=notes[n%notes.length];
+  n++;
+  hearts(24);
+};
+</script>
+</body>
+</html>
